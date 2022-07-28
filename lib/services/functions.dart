@@ -248,6 +248,12 @@ class Functions extends Service {
     };
 
     final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+    if (res.data['total'] == null && res.data is Map) {
+      return models.DeploymentList.fromMap({
+        'total': 1,
+        'deployments': [res.data],
+      });
+    }
     return models.DeploymentList.fromMap(res.data);
   }
 

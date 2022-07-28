@@ -52,7 +52,7 @@ class ClientIO extends ClientBase with ClientMixin {
     _endPointRealtime = endPoint.replaceFirst('https://', 'wss://').replaceFirst('http://', 'ws://');
     _headers = {
       'content-type': 'application/json',
-      'x-sdk-version': 'appwrite:flutter:5.0.0',
+      'x-sdk-version': 'appwrite:web:5.0.0',
       'X-Appwrite-Response-Format': '0.14.0',
     };
 
