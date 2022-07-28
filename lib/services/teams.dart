@@ -1,6 +1,5 @@
 part of appwrite;
 
-
      /// The Teams service allows you to group users of your project and to enable
      /// them to share read and write access to your project resources
 class Teams extends Service {
@@ -19,19 +18,25 @@ class Teams extends Service {
 
         final Map<String, dynamic> params = {
             'search': search,
-            'limit': limit,
-            'offset': offset,
-            'cursor': cursor,
-            'cursorDirection': cursorDirection,
-            'orderType': orderType,
+'limit': limit,
+'offset': offset,
+'cursor': cursor,
+'cursorDirection': cursorDirection,
+'orderType': orderType,
+
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.TeamList.fromMap(res.data);
+
+
     }
 
      /// Create Team
@@ -44,17 +49,23 @@ class Teams extends Service {
         const String path = '/teams';
 
         final Map<String, dynamic> params = {
+            
             'teamId': teamId,
-            'name': name,
-            'roles': roles,
+'name': name,
+'roles': roles,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Team.fromMap(res.data);
+
+
     }
 
      /// Get Team
@@ -65,14 +76,20 @@ class Teams extends Service {
         final String path = '/teams/{teamId}'.replaceAll('{teamId}', teamId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.Team.fromMap(res.data);
+
+
     }
 
      /// Update Team
@@ -84,15 +101,21 @@ class Teams extends Service {
         final String path = '/teams/{teamId}'.replaceAll('{teamId}', teamId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.put, path: path, params: params, headers: headers);
+
         return models.Team.fromMap(res.data);
+
+
     }
 
      /// Delete Team
@@ -104,14 +127,20 @@ class Teams extends Service {
         final String path = '/teams/{teamId}'.replaceAll('{teamId}', teamId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
     }
 
      /// List Team Logs
@@ -123,15 +152,21 @@ class Teams extends Service {
 
         final Map<String, dynamic> params = {
             'limit': limit,
-            'offset': offset,
+'offset': offset,
+
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.LogList.fromMap(res.data);
+
+
     }
 
      /// Get Team Memberships
@@ -144,19 +179,25 @@ class Teams extends Service {
 
         final Map<String, dynamic> params = {
             'search': search,
-            'limit': limit,
-            'offset': offset,
-            'cursor': cursor,
-            'cursorDirection': cursorDirection,
-            'orderType': orderType,
+'limit': limit,
+'offset': offset,
+'cursor': cursor,
+'cursorDirection': cursorDirection,
+'orderType': orderType,
+
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.MembershipList.fromMap(res.data);
+
+
     }
 
      /// Create Team Membership
@@ -181,18 +222,24 @@ class Teams extends Service {
         final String path = '/teams/{teamId}/memberships'.replaceAll('{teamId}', teamId);
 
         final Map<String, dynamic> params = {
+            
             'email': email,
-            'roles': roles,
-            'url': url,
-            'name': name,
+'roles': roles,
+'url': url,
+'name': name,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Membership.fromMap(res.data);
+
+
     }
 
      /// Get Team Membership
@@ -204,14 +251,20 @@ class Teams extends Service {
         final String path = '/teams/{teamId}/memberships/{membershipId}'.replaceAll('{teamId}', teamId).replaceAll('{membershipId}', membershipId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.MembershipList.fromMap(res.data);
+
+
     }
 
      /// Update Membership Roles
@@ -224,15 +277,21 @@ class Teams extends Service {
         final String path = '/teams/{teamId}/memberships/{membershipId}'.replaceAll('{teamId}', teamId).replaceAll('{membershipId}', membershipId);
 
         final Map<String, dynamic> params = {
+            
             'roles': roles,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Membership.fromMap(res.data);
+
+
     }
 
      /// Delete Team Membership
@@ -245,14 +304,20 @@ class Teams extends Service {
         final String path = '/teams/{teamId}/memberships/{membershipId}'.replaceAll('{teamId}', teamId).replaceAll('{membershipId}', membershipId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
     }
 
      /// Update Team Membership Status
@@ -269,15 +334,21 @@ class Teams extends Service {
         final String path = '/teams/{teamId}/memberships/{membershipId}/status'.replaceAll('{teamId}', teamId).replaceAll('{membershipId}', membershipId);
 
         final Map<String, dynamic> params = {
+            
             'userId': userId,
-            'secret': secret,
+'secret': secret,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Membership.fromMap(res.data);
+
+
     }
 }

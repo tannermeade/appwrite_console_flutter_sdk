@@ -1,6 +1,5 @@
 part of appwrite;
 
-
      /// The Project service allows you to manage all the projects in your Appwrite
      /// server.
 class Projects extends Service {
@@ -12,19 +11,25 @@ class Projects extends Service {
 
         final Map<String, dynamic> params = {
             'search': search,
-            'limit': limit,
-            'offset': offset,
-            'cursor': cursor,
-            'cursorDirection': cursorDirection,
-            'orderType': orderType,
+'limit': limit,
+'offset': offset,
+'cursor': cursor,
+'cursorDirection': cursorDirection,
+'orderType': orderType,
+
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.ProjectList.fromMap(res.data);
+
+
     }
 
      /// Create Project
@@ -32,26 +37,32 @@ class Projects extends Service {
         const String path = '/projects';
 
         final Map<String, dynamic> params = {
+            
             'projectId': projectId,
-            'name': name,
-            'teamId': teamId,
-            'description': description,
-            'logo': logo,
-            'url': url,
-            'legalName': legalName,
-            'legalCountry': legalCountry,
-            'legalState': legalState,
-            'legalCity': legalCity,
-            'legalAddress': legalAddress,
-            'legalTaxId': legalTaxId,
+'name': name,
+'teamId': teamId,
+'description': description,
+'logo': logo,
+'url': url,
+'legalName': legalName,
+'legalCountry': legalCountry,
+'legalState': legalState,
+'legalCity': legalCity,
+'legalAddress': legalAddress,
+'legalTaxId': legalTaxId,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// Get Project
@@ -59,14 +70,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// Update Project
@@ -74,24 +91,30 @@ class Projects extends Service {
         final String path = '/projects/{projectId}'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
-            'description': description,
-            'logo': logo,
-            'url': url,
-            'legalName': legalName,
-            'legalCountry': legalCountry,
-            'legalState': legalState,
-            'legalCity': legalCity,
-            'legalAddress': legalAddress,
-            'legalTaxId': legalTaxId,
+'description': description,
+'logo': logo,
+'url': url,
+'legalName': legalName,
+'legalCountry': legalCountry,
+'legalState': legalState,
+'legalCity': legalCity,
+'legalAddress': legalAddress,
+'legalTaxId': legalTaxId,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// Delete Project
@@ -99,15 +122,21 @@ class Projects extends Service {
         final String path = '/projects/{projectId}'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'password': password,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
     }
 
      /// Update Project users limit
@@ -115,15 +144,21 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/auth/limit'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'limit': limit,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// Update Project auth method status. Use this endpoint to enable or disable a given auth method for this project.
@@ -131,15 +166,21 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/auth/{method}'.replaceAll('{projectId}', projectId).replaceAll('{method}', method);
 
         final Map<String, dynamic> params = {
+            
             'status': status,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// List Domains
@@ -147,14 +188,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/domains'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.DomainList.fromMap(res.data);
+
+
     }
 
      /// Create Domain
@@ -162,15 +209,21 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/domains'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'domain': domain,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Domain.fromMap(res.data);
+
+
     }
 
      /// Get Domain
@@ -178,14 +231,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/domains/{domainId}'.replaceAll('{projectId}', projectId).replaceAll('{domainId}', domainId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.Domain.fromMap(res.data);
+
+
     }
 
      /// Delete Domain
@@ -193,14 +252,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/domains/{domainId}'.replaceAll('{projectId}', projectId).replaceAll('{domainId}', domainId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
     }
 
      /// Update Domain Verification Status
@@ -208,14 +273,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/domains/{domainId}/verification'.replaceAll('{projectId}', projectId).replaceAll('{domainId}', domainId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Domain.fromMap(res.data);
+
+
     }
 
      /// List Keys
@@ -223,31 +294,44 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/keys'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.KeyList.fromMap(res.data);
+
+
     }
 
      /// Create Key
-     Future<models.Key> createKey({required String projectId, required String name, required List scopes}) async {
+     Future<models.Key> createKey({required String projectId, required String name, required List scopes, int? expire}) async {
         final String path = '/projects/{projectId}/keys'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
-            'scopes': scopes,
+'scopes': scopes,
+'expire': expire,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Key.fromMap(res.data);
+
+
     }
 
      /// Get Key
@@ -255,31 +339,44 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/keys/{keyId}'.replaceAll('{projectId}', projectId).replaceAll('{keyId}', keyId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.Key.fromMap(res.data);
+
+
     }
 
      /// Update Key
-     Future<models.Key> updateKey({required String projectId, required String keyId, required String name, required List scopes}) async {
+     Future<models.Key> updateKey({required String projectId, required String keyId, required String name, required List scopes, int? expire}) async {
         final String path = '/projects/{projectId}/keys/{keyId}'.replaceAll('{projectId}', projectId).replaceAll('{keyId}', keyId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
-            'scopes': scopes,
+'scopes': scopes,
+'expire': expire,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.put, path: path, params: params, headers: headers);
+
         return models.Key.fromMap(res.data);
+
+
     }
 
      /// Delete Key
@@ -287,14 +384,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/keys/{keyId}'.replaceAll('{projectId}', projectId).replaceAll('{keyId}', keyId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
     }
 
      /// Update Project OAuth2
@@ -302,17 +405,23 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/oauth2'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'provider': provider,
-            'appId': appId,
-            'secret': secret,
+'appId': appId,
+'secret': secret,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// List Platforms
@@ -320,14 +429,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/platforms'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.PlatformList.fromMap(res.data);
+
+
     }
 
      /// Create Platform
@@ -335,19 +450,25 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/platforms'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'type': type,
-            'name': name,
-            'key': key,
-            'store': store,
-            'hostname': hostname,
+'name': name,
+'key': key,
+'store': store,
+'hostname': hostname,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Platform.fromMap(res.data);
+
+
     }
 
      /// Get Platform
@@ -355,14 +476,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/platforms/{platformId}'.replaceAll('{projectId}', projectId).replaceAll('{platformId}', platformId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.Platform.fromMap(res.data);
+
+
     }
 
      /// Update Platform
@@ -370,18 +497,24 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/platforms/{platformId}'.replaceAll('{projectId}', projectId).replaceAll('{platformId}', platformId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
-            'key': key,
-            'store': store,
-            'hostname': hostname,
+'key': key,
+'store': store,
+'hostname': hostname,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.put, path: path, params: params, headers: headers);
+
         return models.Platform.fromMap(res.data);
+
+
     }
 
      /// Delete Platform
@@ -389,14 +522,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/platforms/{platformId}'.replaceAll('{projectId}', projectId).replaceAll('{platformId}', platformId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
     }
 
      /// Update service status
@@ -404,16 +543,22 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/service'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'service': service,
-            'status': status,
+'status': status,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
         return models.Project.fromMap(res.data);
+
+
     }
 
      /// Get usage stats for a project
@@ -422,14 +567,20 @@ class Projects extends Service {
 
         final Map<String, dynamic> params = {
             'range': range,
+
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.UsageProject.fromMap(res.data);
+
+
     }
 
      /// List Webhooks
@@ -437,14 +588,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/webhooks'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.WebhookList.fromMap(res.data);
+
+
     }
 
      /// Create Webhook
@@ -452,20 +609,26 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/webhooks'.replaceAll('{projectId}', projectId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
-            'events': events,
-            'url': url,
-            'security': security,
-            'httpUser': httpUser,
-            'httpPass': httpPass,
+'events': events,
+'url': url,
+'security': security,
+'httpUser': httpUser,
+'httpPass': httpPass,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.post, path: path, params: params, headers: headers);
+
         return models.Webhook.fromMap(res.data);
+
+
     }
 
      /// Get Webhook
@@ -473,14 +636,20 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/webhooks/{webhookId}'.replaceAll('{projectId}', projectId).replaceAll('{webhookId}', webhookId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.Webhook.fromMap(res.data);
+
+
     }
 
      /// Update Webhook
@@ -488,20 +657,26 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/webhooks/{webhookId}'.replaceAll('{projectId}', projectId).replaceAll('{webhookId}', webhookId);
 
         final Map<String, dynamic> params = {
+            
             'name': name,
-            'events': events,
-            'url': url,
-            'security': security,
-            'httpUser': httpUser,
-            'httpPass': httpPass,
+'events': events,
+'url': url,
+'security': security,
+'httpUser': httpUser,
+'httpPass': httpPass,
+
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.put, path: path, params: params, headers: headers);
+
         return models.Webhook.fromMap(res.data);
+
+
     }
 
      /// Delete Webhook
@@ -509,13 +684,40 @@ class Projects extends Service {
         final String path = '/projects/{projectId}/webhooks/{webhookId}'.replaceAll('{projectId}', projectId).replaceAll('{webhookId}', webhookId);
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.delete, path: path, params: params, headers: headers);
+
         return  res.data;
+
+
+    }
+
+     /// Update Webhook Signature Key
+     Future<models.Webhook> updateWebhookSignature({required String projectId, required String webhookId}) async {
+        final String path = '/projects/{projectId}/webhooks/{webhookId}/signature'.replaceAll('{projectId}', projectId).replaceAll('{webhookId}', webhookId);
+
+        final Map<String, dynamic> params = {
+            
+            
+        };
+
+        final Map<String, String> headers = {
+                        'content-type': 'application/json',
+
+        };
+
+        final res = await client.call(HttpMethod.patch, path: path, params: params, headers: headers);
+
+        return models.Webhook.fromMap(res.data);
+
+
     }
 }

@@ -1,6 +1,5 @@
 part of appwrite;
 
-
      /// The Health service allows you to both validate and monitor your Appwrite
      /// server's health.
 class Health extends Service {
@@ -14,14 +13,20 @@ class Health extends Service {
         const String path = '/health';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthStatus.fromMap(res.data);
+
+
     }
 
      /// Get Antivirus
@@ -32,14 +37,20 @@ class Health extends Service {
         const String path = '/health/anti-virus';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthAntivirus.fromMap(res.data);
+
+
     }
 
      /// Get Cache
@@ -51,14 +62,20 @@ class Health extends Service {
         const String path = '/health/cache';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthStatus.fromMap(res.data);
+
+
     }
 
      /// Get DB
@@ -69,14 +86,20 @@ class Health extends Service {
         const String path = '/health/db';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthStatus.fromMap(res.data);
+
+
     }
 
      /// Get Certificates Queue
@@ -89,14 +112,20 @@ class Health extends Service {
         const String path = '/health/queue/certificates';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthQueue.fromMap(res.data);
+
+
     }
 
      /// Get Functions Queue
@@ -104,14 +133,20 @@ class Health extends Service {
         const String path = '/health/queue/functions';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthQueue.fromMap(res.data);
+
+
     }
 
      /// Get Logs Queue
@@ -123,14 +158,20 @@ class Health extends Service {
         const String path = '/health/queue/logs';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthQueue.fromMap(res.data);
+
+
     }
 
      /// Get Webhooks Queue
@@ -142,14 +183,20 @@ class Health extends Service {
         const String path = '/health/queue/webhooks';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthQueue.fromMap(res.data);
+
+
     }
 
      /// Get Local Storage
@@ -160,14 +207,20 @@ class Health extends Service {
         const String path = '/health/storage/local';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthStatus.fromMap(res.data);
+
+
     }
 
      /// Get Time
@@ -184,13 +237,19 @@ class Health extends Service {
         const String path = '/health/time';
 
         final Map<String, dynamic> params = {
+            
+            
         };
 
         final Map<String, String> headers = {
-            'content-type': 'application/json',
+                        'content-type': 'application/json',
+
         };
 
         final res = await client.call(HttpMethod.get, path: path, params: params, headers: headers);
+
         return models.HealthTime.fromMap(res.data);
+
+
     }
 }

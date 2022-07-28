@@ -4,6 +4,10 @@ part of appwrite.models;
 class Webhook implements Model {
     /// Webhook ID.
     final String $id;
+    /// Webhook creation date in Unix timestamp.
+    final int $createdAt;
+    /// Webhook update date in Unix timestamp.
+    final int $updatedAt;
     /// Webhook name.
     final String name;
     /// Webhook URL endpoint.
@@ -16,26 +20,34 @@ class Webhook implements Model {
     final String httpUser;
     /// HTTP basic authentication password.
     final String httpPass;
+    /// Signature key which can be used to validated incoming
+    final String signatureKey;
 
     Webhook({
         required this.$id,
+        required this.$createdAt,
+        required this.$updatedAt,
         required this.name,
         required this.url,
         required this.events,
         required this.security,
         required this.httpUser,
         required this.httpPass,
+        required this.signatureKey,
     });
 
     factory Webhook.fromMap(Map<String, dynamic> map) {
         return Webhook(
             $id: map['\$id'].toString(),
+            $createdAt: map['\$createdAt'],
+            $updatedAt: map['\$updatedAt'],
             name: map['name'].toString(),
             url: map['url'].toString(),
             events: map['events'],
             security: map['security'],
             httpUser: map['httpUser'].toString(),
             httpPass: map['httpPass'].toString(),
+            signatureKey: map['signatureKey'].toString(),
         );
     }
 
@@ -43,12 +55,15 @@ class Webhook implements Model {
     Map<String, dynamic> toMap() {
         return {
             "\$id": $id,
+            "\$createdAt": $createdAt,
+            "\$updatedAt": $updatedAt,
             "name": name,
             "url": url,
             "events": events,
             "security": security,
             "httpUser": httpUser,
             "httpPass": httpPass,
+            "signatureKey": signatureKey,
         };
     }
 }

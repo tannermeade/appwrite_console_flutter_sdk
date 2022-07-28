@@ -4,6 +4,10 @@ part of appwrite.models;
 class Platform implements Model {
     /// Platform ID.
     final String $id;
+    /// Project creation date in Unix timestamp.
+    final int $createdAt;
+    /// Project update date in Unix timestamp.
+    final int $updatedAt;
     /// Platform name.
     final String name;
     /// Platform type. Possible values are: web, flutter-ios, flutter-android, ios, android, and unity.
@@ -21,6 +25,8 @@ class Platform implements Model {
 
     Platform({
         required this.$id,
+        required this.$createdAt,
+        required this.$updatedAt,
         required this.name,
         required this.type,
         required this.key,
@@ -33,6 +39,8 @@ class Platform implements Model {
     factory Platform.fromMap(Map<String, dynamic> map) {
         return Platform(
             $id: map['\$id'].toString(),
+            $createdAt: map['\$createdAt'],
+            $updatedAt: map['\$updatedAt'],
             name: map['name'].toString(),
             type: map['type'].toString(),
             key: map['key'].toString(),
@@ -47,6 +55,8 @@ class Platform implements Model {
     Map<String, dynamic> toMap() {
         return {
             "\$id": $id,
+            "\$createdAt": $createdAt,
+            "\$updatedAt": $updatedAt,
             "name": name,
             "type": type,
             "key": key,

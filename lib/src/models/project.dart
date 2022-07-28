@@ -4,6 +4,10 @@ part of appwrite.models;
 class Project implements Model {
     /// Project ID.
     final String $id;
+    /// Project creation date in Unix timestamp.
+    final int $createdAt;
+    /// Project update date in Unix timestamp.
+    final int $updatedAt;
     /// Project name.
     final String name;
     /// Project description.
@@ -48,6 +52,10 @@ class Project implements Model {
     final String providerAuth0Appid;
     /// Auth0 OAuth secret ID.
     final String providerAuth0Secret;
+    /// Autodesk OAuth app ID.
+    final String providerAutodeskAppid;
+    /// Autodesk OAuth secret ID.
+    final String providerAutodeskSecret;
     /// BitBucket OAuth app ID.
     final String providerBitbucketAppid;
     /// BitBucket OAuth secret ID.
@@ -60,6 +68,10 @@ class Project implements Model {
     final String providerBoxAppid;
     /// Box OAuth secret ID.
     final String providerBoxSecret;
+    /// Dailymotion OAuth app ID.
+    final String providerDailymotionAppid;
+    /// Dailymotion OAuth secret ID.
+    final String providerDailymotionSecret;
     /// Discord OAuth app ID.
     final String providerDiscordAppid;
     /// Discord OAuth secret ID.
@@ -120,6 +132,10 @@ class Project implements Model {
     final String providerSpotifyAppid;
     /// Spotify OAuth secret ID.
     final String providerSpotifySecret;
+    /// Stripe OAuth app ID.
+    final String providerStripeAppid;
+    /// Stripe OAuth secret ID.
+    final String providerStripeSecret;
     /// Tradeshift OAuth app ID.
     final String providerTradeshiftAppid;
     /// Tradeshift OAuth secret ID.
@@ -132,10 +148,10 @@ class Project implements Model {
     final String providerTwitchAppid;
     /// Twitch OAuth secret ID.
     final String providerTwitchSecret;
-    /// Zoom OAuth app ID.
-    final String providerZoomAppid;
-    /// Zoom OAuth secret ID.
-    final String providerZoomSecret;
+    /// WordPress OAuth app ID.
+    final String providerWordpressAppid;
+    /// WordPress OAuth secret ID.
+    final String providerWordpressSecret;
     /// Yahoo OAuth app ID.
     final String providerYahooAppid;
     /// Yahoo OAuth secret ID.
@@ -148,14 +164,10 @@ class Project implements Model {
     final String providerYandexAppid;
     /// Yandex OAuth secret ID.
     final String providerYandexSecret;
-    /// WordPress OAuth app ID.
-    final String providerWordpressAppid;
-    /// WordPress OAuth secret ID.
-    final String providerWordpressSecret;
-    /// Stripe OAuth app ID.
-    final String providerStripeAppid;
-    /// Stripe OAuth secret ID.
-    final String providerStripeSecret;
+    /// Zoom OAuth app ID.
+    final String providerZoomAppid;
+    /// Zoom OAuth secret ID.
+    final String providerZoomSecret;
     /// Mock OAuth app ID.
     final String providerMockAppid;
     /// Mock OAuth secret ID.
@@ -176,8 +188,8 @@ class Project implements Model {
     final bool serviceStatusForAccount;
     /// Avatars service status
     final bool serviceStatusForAvatars;
-    /// Database service status
-    final bool serviceStatusForDatabase;
+    /// Databases service status
+    final bool serviceStatusForDatabases;
     /// Locale service status
     final bool serviceStatusForLocale;
     /// Health service status
@@ -193,6 +205,8 @@ class Project implements Model {
 
     Project({
         required this.$id,
+        required this.$createdAt,
+        required this.$updatedAt,
         required this.name,
         required this.description,
         required this.teamId,
@@ -215,12 +229,16 @@ class Project implements Model {
         required this.providerAppleSecret,
         required this.providerAuth0Appid,
         required this.providerAuth0Secret,
+        required this.providerAutodeskAppid,
+        required this.providerAutodeskSecret,
         required this.providerBitbucketAppid,
         required this.providerBitbucketSecret,
         required this.providerBitlyAppid,
         required this.providerBitlySecret,
         required this.providerBoxAppid,
         required this.providerBoxSecret,
+        required this.providerDailymotionAppid,
+        required this.providerDailymotionSecret,
         required this.providerDiscordAppid,
         required this.providerDiscordSecret,
         required this.providerDropboxAppid,
@@ -251,24 +269,24 @@ class Project implements Model {
         required this.providerSlackSecret,
         required this.providerSpotifyAppid,
         required this.providerSpotifySecret,
+        required this.providerStripeAppid,
+        required this.providerStripeSecret,
         required this.providerTradeshiftAppid,
         required this.providerTradeshiftSecret,
         required this.providerTradeshiftBoxAppid,
         required this.providerTradeshiftBoxSecret,
         required this.providerTwitchAppid,
         required this.providerTwitchSecret,
-        required this.providerZoomAppid,
-        required this.providerZoomSecret,
+        required this.providerWordpressAppid,
+        required this.providerWordpressSecret,
         required this.providerYahooAppid,
         required this.providerYahooSecret,
         required this.providerYammerAppid,
         required this.providerYammerSecret,
         required this.providerYandexAppid,
         required this.providerYandexSecret,
-        required this.providerWordpressAppid,
-        required this.providerWordpressSecret,
-        required this.providerStripeAppid,
-        required this.providerStripeSecret,
+        required this.providerZoomAppid,
+        required this.providerZoomSecret,
         required this.providerMockAppid,
         required this.providerMockSecret,
         required this.authEmailPassword,
@@ -279,7 +297,7 @@ class Project implements Model {
         required this.authPhone,
         required this.serviceStatusForAccount,
         required this.serviceStatusForAvatars,
-        required this.serviceStatusForDatabase,
+        required this.serviceStatusForDatabases,
         required this.serviceStatusForLocale,
         required this.serviceStatusForHealth,
         required this.serviceStatusForStorage,
@@ -291,6 +309,8 @@ class Project implements Model {
     factory Project.fromMap(Map<String, dynamic> map) {
         return Project(
             $id: map['\$id'].toString(),
+            $createdAt: map['\$createdAt'],
+            $updatedAt: map['\$updatedAt'],
             name: map['name'].toString(),
             description: map['description'].toString(),
             teamId: map['teamId'].toString(),
@@ -313,12 +333,16 @@ class Project implements Model {
             providerAppleSecret: map['providerAppleSecret'].toString(),
             providerAuth0Appid: map['providerAuth0Appid'].toString(),
             providerAuth0Secret: map['providerAuth0Secret'].toString(),
+            providerAutodeskAppid: map['providerAutodeskAppid'].toString(),
+            providerAutodeskSecret: map['providerAutodeskSecret'].toString(),
             providerBitbucketAppid: map['providerBitbucketAppid'].toString(),
             providerBitbucketSecret: map['providerBitbucketSecret'].toString(),
             providerBitlyAppid: map['providerBitlyAppid'].toString(),
             providerBitlySecret: map['providerBitlySecret'].toString(),
             providerBoxAppid: map['providerBoxAppid'].toString(),
             providerBoxSecret: map['providerBoxSecret'].toString(),
+            providerDailymotionAppid: map['providerDailymotionAppid'].toString(),
+            providerDailymotionSecret: map['providerDailymotionSecret'].toString(),
             providerDiscordAppid: map['providerDiscordAppid'].toString(),
             providerDiscordSecret: map['providerDiscordSecret'].toString(),
             providerDropboxAppid: map['providerDropboxAppid'].toString(),
@@ -349,24 +373,24 @@ class Project implements Model {
             providerSlackSecret: map['providerSlackSecret'].toString(),
             providerSpotifyAppid: map['providerSpotifyAppid'].toString(),
             providerSpotifySecret: map['providerSpotifySecret'].toString(),
+            providerStripeAppid: map['providerStripeAppid'].toString(),
+            providerStripeSecret: map['providerStripeSecret'].toString(),
             providerTradeshiftAppid: map['providerTradeshiftAppid'].toString(),
             providerTradeshiftSecret: map['providerTradeshiftSecret'].toString(),
             providerTradeshiftBoxAppid: map['providerTradeshiftBoxAppid'].toString(),
             providerTradeshiftBoxSecret: map['providerTradeshiftBoxSecret'].toString(),
             providerTwitchAppid: map['providerTwitchAppid'].toString(),
             providerTwitchSecret: map['providerTwitchSecret'].toString(),
-            providerZoomAppid: map['providerZoomAppid'].toString(),
-            providerZoomSecret: map['providerZoomSecret'].toString(),
+            providerWordpressAppid: map['providerWordpressAppid'].toString(),
+            providerWordpressSecret: map['providerWordpressSecret'].toString(),
             providerYahooAppid: map['providerYahooAppid'].toString(),
             providerYahooSecret: map['providerYahooSecret'].toString(),
             providerYammerAppid: map['providerYammerAppid'].toString(),
             providerYammerSecret: map['providerYammerSecret'].toString(),
             providerYandexAppid: map['providerYandexAppid'].toString(),
             providerYandexSecret: map['providerYandexSecret'].toString(),
-            providerWordpressAppid: map['providerWordpressAppid'].toString(),
-            providerWordpressSecret: map['providerWordpressSecret'].toString(),
-            providerStripeAppid: map['providerStripeAppid'].toString(),
-            providerStripeSecret: map['providerStripeSecret'].toString(),
+            providerZoomAppid: map['providerZoomAppid'].toString(),
+            providerZoomSecret: map['providerZoomSecret'].toString(),
             providerMockAppid: map['providerMockAppid'].toString(),
             providerMockSecret: map['providerMockSecret'].toString(),
             authEmailPassword: map['authEmailPassword'],
@@ -377,7 +401,7 @@ class Project implements Model {
             authPhone: map['authPhone'],
             serviceStatusForAccount: map['serviceStatusForAccount'],
             serviceStatusForAvatars: map['serviceStatusForAvatars'],
-            serviceStatusForDatabase: map['serviceStatusForDatabase'],
+            serviceStatusForDatabases: map['serviceStatusForDatabases'],
             serviceStatusForLocale: map['serviceStatusForLocale'],
             serviceStatusForHealth: map['serviceStatusForHealth'],
             serviceStatusForStorage: map['serviceStatusForStorage'],
@@ -391,6 +415,8 @@ class Project implements Model {
     Map<String, dynamic> toMap() {
         return {
             "\$id": $id,
+            "\$createdAt": $createdAt,
+            "\$updatedAt": $updatedAt,
             "name": name,
             "description": description,
             "teamId": teamId,
@@ -413,12 +439,16 @@ class Project implements Model {
             "providerAppleSecret": providerAppleSecret,
             "providerAuth0Appid": providerAuth0Appid,
             "providerAuth0Secret": providerAuth0Secret,
+            "providerAutodeskAppid": providerAutodeskAppid,
+            "providerAutodeskSecret": providerAutodeskSecret,
             "providerBitbucketAppid": providerBitbucketAppid,
             "providerBitbucketSecret": providerBitbucketSecret,
             "providerBitlyAppid": providerBitlyAppid,
             "providerBitlySecret": providerBitlySecret,
             "providerBoxAppid": providerBoxAppid,
             "providerBoxSecret": providerBoxSecret,
+            "providerDailymotionAppid": providerDailymotionAppid,
+            "providerDailymotionSecret": providerDailymotionSecret,
             "providerDiscordAppid": providerDiscordAppid,
             "providerDiscordSecret": providerDiscordSecret,
             "providerDropboxAppid": providerDropboxAppid,
@@ -449,24 +479,24 @@ class Project implements Model {
             "providerSlackSecret": providerSlackSecret,
             "providerSpotifyAppid": providerSpotifyAppid,
             "providerSpotifySecret": providerSpotifySecret,
+            "providerStripeAppid": providerStripeAppid,
+            "providerStripeSecret": providerStripeSecret,
             "providerTradeshiftAppid": providerTradeshiftAppid,
             "providerTradeshiftSecret": providerTradeshiftSecret,
             "providerTradeshiftBoxAppid": providerTradeshiftBoxAppid,
             "providerTradeshiftBoxSecret": providerTradeshiftBoxSecret,
             "providerTwitchAppid": providerTwitchAppid,
             "providerTwitchSecret": providerTwitchSecret,
-            "providerZoomAppid": providerZoomAppid,
-            "providerZoomSecret": providerZoomSecret,
+            "providerWordpressAppid": providerWordpressAppid,
+            "providerWordpressSecret": providerWordpressSecret,
             "providerYahooAppid": providerYahooAppid,
             "providerYahooSecret": providerYahooSecret,
             "providerYammerAppid": providerYammerAppid,
             "providerYammerSecret": providerYammerSecret,
             "providerYandexAppid": providerYandexAppid,
             "providerYandexSecret": providerYandexSecret,
-            "providerWordpressAppid": providerWordpressAppid,
-            "providerWordpressSecret": providerWordpressSecret,
-            "providerStripeAppid": providerStripeAppid,
-            "providerStripeSecret": providerStripeSecret,
+            "providerZoomAppid": providerZoomAppid,
+            "providerZoomSecret": providerZoomSecret,
             "providerMockAppid": providerMockAppid,
             "providerMockSecret": providerMockSecret,
             "authEmailPassword": authEmailPassword,
@@ -477,7 +507,7 @@ class Project implements Model {
             "authPhone": authPhone,
             "serviceStatusForAccount": serviceStatusForAccount,
             "serviceStatusForAvatars": serviceStatusForAvatars,
-            "serviceStatusForDatabase": serviceStatusForDatabase,
+            "serviceStatusForDatabases": serviceStatusForDatabases,
             "serviceStatusForLocale": serviceStatusForLocale,
             "serviceStatusForHealth": serviceStatusForHealth,
             "serviceStatusForStorage": serviceStatusForStorage,

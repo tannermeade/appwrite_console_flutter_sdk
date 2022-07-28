@@ -4,6 +4,10 @@ part of appwrite.models;
 class Domain implements Model {
     /// Domain ID.
     final String $id;
+    /// Domain creation date in Unix timestamp.
+    final int $createdAt;
+    /// Domain update date in Unix timestamp.
+    final int $updatedAt;
     /// Domain name.
     final String domain;
     /// Registerable domain name.
@@ -17,6 +21,8 @@ class Domain implements Model {
 
     Domain({
         required this.$id,
+        required this.$createdAt,
+        required this.$updatedAt,
         required this.domain,
         required this.registerable,
         required this.tld,
@@ -27,6 +33,8 @@ class Domain implements Model {
     factory Domain.fromMap(Map<String, dynamic> map) {
         return Domain(
             $id: map['\$id'].toString(),
+            $createdAt: map['\$createdAt'],
+            $updatedAt: map['\$updatedAt'],
             domain: map['domain'].toString(),
             registerable: map['registerable'].toString(),
             tld: map['tld'].toString(),
@@ -39,6 +47,8 @@ class Domain implements Model {
     Map<String, dynamic> toMap() {
         return {
             "\$id": $id,
+            "\$createdAt": $createdAt,
+            "\$updatedAt": $updatedAt,
             "domain": domain,
             "registerable": registerable,
             "tld": tld,
