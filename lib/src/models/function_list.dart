@@ -5,7 +5,7 @@ class FunctionList implements Model {
     /// Total number of functions documents that matched your query.
     final int total;
     /// List of functions.
-    final List<Func> functions;
+    final List<Funct> functions;
 
     FunctionList({
         required this.total,
@@ -15,7 +15,7 @@ class FunctionList implements Model {
     factory FunctionList.fromMap(Map<String, dynamic> map) {
         return FunctionList(
             total: map['total'],
-            functions: List<Func>.from(map['functions'].map((p) => Func.fromMap(p))),
+            functions: List<Funct>.from(map['functions'].map((p) => Funct.fromMap(p))),
         );
     }
 

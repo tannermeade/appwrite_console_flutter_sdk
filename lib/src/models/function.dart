@@ -1,7 +1,7 @@
 part of appwrite.models;
 
 /// Function
-class Func implements Model {
+class Funct implements Model {
     /// Function ID.
     final String $id;
     /// Function creation date in Unix timestamp.
@@ -31,7 +31,7 @@ class Func implements Model {
     /// Function execution timeout in seconds.
     final int timeout;
 
-    Func({
+    Funct({
         required this.$id,
         required this.$createdAt,
         required this.$updatedAt,
@@ -48,8 +48,8 @@ class Func implements Model {
         required this.timeout,
     });
 
-    factory Func.fromMap(Map<String, dynamic> map) {
-        return Func(
+    factory Funct.fromMap(Map<String, dynamic> map) {
+        return Funct(
             $id: map['\$id'].toString(),
             $createdAt: map['\$createdAt'],
             $updatedAt: map['\$updatedAt'],
