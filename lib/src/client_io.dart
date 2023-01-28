@@ -59,7 +59,7 @@ class ClientIO extends ClientBase with ClientMixin {
         .replaceFirst('http://', 'ws://');
     _headers = {
       'content-type': 'application/json',
-      'x-sdk-version': 'appwrite:flutter:5.0.0',
+      'x-sdk-version': 'appwrite:web:5.0.0',
       'X-Appwrite-Response-Format' : '0.15.0',
     };
 
@@ -152,7 +152,10 @@ class ClientIO extends ClientBase with ClientMixin {
     _interceptors.add(CookieManager(_cookieJar));
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     addHeader('Origin',
-        'appwrite-${Platform.operatingSystem}://${packageInfo.packageName}');
+        'appwrite-${Platform.operatingSystem}://localhost'
+        // 'appwrite-${Platform.operatingSystem}://${packageInfo.packageName}'
+        // 'http://10.40.33.145'
+        );
 
     //creating custom user agent
     DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
